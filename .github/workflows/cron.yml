@@ -1,0 +1,30 @@
+name: Update SanDiegoVille Ticker
+on:
+  schedule:
+    - cron: '0 * * * *' # Triggers automatically every single hour
+  workflow_dispatch: # Allows you to push updates manually with a button click
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-file: 'scraper.py'
+
+    - name: Run Scraper
+      run: python scraper.py
+
+    - name: Commit and Push Changes
+      run: |
+        git config --global user.name "GitHub Action Scraper"
+        git config --global user.email "actions@github.com"
+        git add index.html
+        git diff-index --quiet HEAD || git commit -m "Automated update of SanDiegoVille Headlines"
+        git push
