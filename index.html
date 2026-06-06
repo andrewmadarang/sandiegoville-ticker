@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SanDiegoVille Live Ticker</title>
+    <style>
+        body, html { margin: 0; padding: 0; overflow: hidden; background: transparent; font-family: 'Montserrat', 'Arial', sans-serif; }
+        .ticker-wrap { width: 100%; overflow: hidden; background-color: rgba(0, 0, 0, 0.85); box-sizing: border-box; padding: 12px 0; border-top: 3px solid #ffcc00; }
+        .ticker { display: inline-block; white-space: nowrap; padding-left: 100%; animation: marquee 35s linear infinite; font-size: 26px; color: #ffffff; font-weight: bold; letter-spacing: 0.5px; }
+        @keyframes marquee { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-100%, 0, 0); } }
+    </style>
+</head>
+<body>
+    <div class="ticker-wrap">
+        <div class="ticker">⚠️ Temporary error loading SanDiegoVille news... ⚠️</div>
+    </div>
+</body>
+</html>
